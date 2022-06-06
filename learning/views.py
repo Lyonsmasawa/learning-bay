@@ -1,15 +1,22 @@
 from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-
+from django.db.models import Q
 from learning.forms import GroupForm
-from .models import Group
+from .models import Group, Language
 
 # Create your views here.
 def home(request):
-    groups = Group.objects.all()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    groups = Group.objects.filter(
+        Q(language__name__icontains = q) |
+        Q(name__icontains=q) |
+        Q(description__icontains=q)
+    )
+    languages = Language.objects.all()
+    group_count = groups.count()
 
-    context = {'groups' : groups} #dictionary
+    context = {'groups' : groups, 'languages': languages, 'groups_count': group_count, } #dictionary
     return render(request, 'learning/home.html', context)
 
 def group(request, pk):

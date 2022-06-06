@@ -2,8 +2,34 @@
 
 
 {% block content %}
-    <div>
-        <a href="{% url 'create-group' %}">Create Group</a>
+    <style>
+        .home{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+    </style>
+
+    <div class="home">
+
+        <div class="">
+            <h3>Browse Languages</h3>
+            <hr>
+            <div class="">
+                <a href="{% url 'home' %}">All Languages</a>
+            </div>
+
+            {% for lang in languages %}
+                
+                <div class="">
+                    <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}}</a>
+                </div>
+            {% endfor %}
+                
+        </div>
+
+        <div class="">
+            <h5>{{groups_count}} study groups available</h5>
+            <a href="{% url 'create-group' %}">Create Group</a>
         {% for group in groups %}
             <div>
                 <a href="{% url 'update-group' group.id %}">Edit Group</a>
@@ -14,6 +40,7 @@
                 <small>{{group.language.name}}</small>
             </div>            
         {% endfor %}
+        </div>
 
     </div>
 {% endblock content %}
