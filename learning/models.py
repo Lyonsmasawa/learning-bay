@@ -17,6 +17,9 @@ class Group(models.Model):
     created = models.DateTimeField(auto_now_add=True) #once
     updated = models.DateTimeField(auto_now=True) #every time
 
+    class Meta:
+        ordering = ['-updated', '-created']
+
     def __str__(self):
         return self.name  #has to be a string if not convert str(value)
 

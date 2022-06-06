@@ -1,6 +1,8 @@
 from multiprocessing import context
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from learning.forms import GroupForm
 from .models import Group
 
 # Create your views here.
@@ -17,6 +19,14 @@ def group(request, pk):
     return render(request, 'learning/group.html', context)
 
 def createGroup(request):
-    
-    context = {  }
+    form = GroupForm
+
+    if request.method == 'POST':
+        # print(request.POST)
+        form = GroupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = { 'form': form, }
     return render(request, 'learning/create_group.html', context)
