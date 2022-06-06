@@ -2,5 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
-def home():
+def home(request):
     return HttpResponse("Home page")
+
+def group(request):
+    return HttpResponse("groups")
