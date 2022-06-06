@@ -6,7 +6,8 @@
         
         {% for group in groups %}
             <div>
-                <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>
+                <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>  
+                <!-- /group/{{group.id}} -->
             </div>            
         {% endfor %}
 
