@@ -43,3 +43,13 @@ def updateGroup(request, pk):
 
     context = { 'form': form, 'group': group}
     return render(request, 'learning/create_group.html', context)
+
+def deleteGroup(request, pk):
+    group = Group.objects.get(id=pk)
+
+    if request.method == 'POST':
+        group.delete()
+        return redirect('home')
+
+    context = {'obj' : group }
+    return render(request, 'learning/delete.html', context)

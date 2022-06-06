@@ -7,6 +7,7 @@
         {% for group in groups %}
             <div>
                 <a href="{% url 'update-group' group.id %}">Edit Group</a>
+                <a href="{% url 'delete-group' group.id %}">Delete Group</a>
                 <span>@{{group.leader}}</span>
                 <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>  
                 <!-- /group/{{group.id}} -->
