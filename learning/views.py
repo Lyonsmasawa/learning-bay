@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -13,5 +14,11 @@ def home(request):
     context = {'groups' : groups} #dictionary
     return render(request, 'learning/home.html', context)
 
-def group(request):
-    return render(request, 'learning/group.html')
+def group(request, pk):
+    group = None
+    for i in groups:
+        if i['id'] == int(pk):
+            group = i
+
+    context = {'group' : group}
+    return render(request, 'learning/group.html', context)
