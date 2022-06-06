@@ -19,7 +19,7 @@ def group(request, pk):
     return render(request, 'learning/group.html', context)
 
 def createGroup(request):
-    form = GroupForm
+    form = GroupForm()
 
     if request.method == 'POST':
         # print(request.POST)
@@ -29,4 +29,17 @@ def createGroup(request):
             return redirect('home')
 
     context = { 'form': form, }
+    return render(request, 'learning/create_group.html', context)
+
+def updateGroup(request, pk):
+    group = Group.objects.get(id = pk)
+    form = GroupForm(instance=group)
+
+    if request.method == 'POST':
+        form = GroupForm(request.POST, instance=group)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = { 'form': form, 'group': group}
     return render(request, 'learning/create_group.html', context)
