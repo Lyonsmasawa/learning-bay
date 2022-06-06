@@ -3,11 +3,13 @@
 
 {% block content %}
     <div>
-        
+        <a href="{% url 'create-group' %}">Create Group</a>
         {% for group in groups %}
             <div>
+                <span>@{{group.leader}}</span>
                 <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>  
                 <!-- /group/{{group.id}} -->
+                <small>{{group.language.name}}</small>
             </div>            
         {% endfor %}
 

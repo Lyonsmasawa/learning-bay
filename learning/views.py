@@ -15,3 +15,8 @@ def group(request, pk):
 
     context = {'group' : group}
     return render(request, 'learning/group.html', context)
+
+def createGroup(request):
+    
+    context = {  }
+    return render(request, 'learning/create_group.html', context)
