@@ -2,11 +2,32 @@
 
 
 {% block content %}
-    <div>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="Submit" value="Submit">
-        </form>
-    </div>
+<div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="">
+            <label for="">Language</label> <br>
+            <input type="text" list="language-list" value="{{group.language.name}}" name="language" />
+            <datalist id="language-list">
+                <select name="" id="language-options">
+                    {% for lang in languages %}
+                    <option value="{{lang.name}}">{{lang.name}}</option>
+                    {% endfor %}
+                </select>
+            </datalist>
+        </div>
+
+        <div class="">
+            <label for="">Group Name</label> <br>
+            {{form.name}}
+        </div>
+
+        <div class="">
+            <label for="">Description</label> <br>
+            {{form.description}}
+        </div>
+
+        <input type="Submit" value="Submit">
+    </form>
+</div>
 {% endblock content %}

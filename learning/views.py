@@ -102,34 +102,43 @@ def group(request, pk):
 @login_required(login_url='login-page')
 def createGroup(request):
     form = GroupForm()
+    languages = Language.objects.all()
 
     if request.method == 'POST':
         # print(request.POST)
-        form = GroupForm(request.POST)
-        if form.is_valid():
-            group = form.save(commit=False)
-            group.host = request.user
-            group.save
-            return redirect('home')
+        language_name = request.POST.get('language')
+        language, created = Language.objects.get_or_create(name=language_name) #returns an object or creates and returns an object
+        
+        Group.objects.create(
+            leader = request.user,
+            language = language,
+            name = request.POST.get('name'),
+            description = request.POST.get('description'),
+        )
+        return redirect('home')
 
-    context = { 'form': form, }
+    context = { 'form': form, 'languages': languages, }
     return render(request, 'learning/create_group.html', context)
 
 @login_required(login_url='login-page')
 def updateGroup(request, pk):
     group = Group.objects.get(id = pk)
     form = GroupForm(instance=group)
+    languages = Language.objects.all()
 
     if request.user != group.leader:
         return HttpResponse("You are not authorized")
 
     if request.method == 'POST':
-        form = GroupForm(request.POST, instance=group)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
+        language_name = request.POST.get('language')
+        language, created = Language.objects.get_or_create(name=language_name) #returns an object or creates and returns an object
+        group.name = request.POST.get("name")
+        group.language = language
+        group.description = request.POST.get("description")
+        group.save()
+        return redirect('home')
 
-    context = { 'form': form, 'group': group}
+    context = { 'form': form, 'group': group, 'languages': languages,}
     return render(request, 'learning/create_group.html', context)
 
 @login_required(login_url='login-page')
