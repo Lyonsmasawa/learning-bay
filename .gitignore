@@ -1,1 +1,3 @@
 learningbay/settings.py
+*.pyc
+env
