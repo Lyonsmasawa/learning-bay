@@ -6,6 +6,7 @@
 
 
 {% if request.user.is_authenticated %}
+<p>Hello {{request.user}}</p>
 <a href="{% url 'logout' %}">LogOut</a>
 {% else %}
 <a href="{% url 'login-page' %}">Login</a>
