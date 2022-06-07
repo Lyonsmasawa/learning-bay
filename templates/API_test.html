@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Demo</title>
+</head>
+<body>
+    <h1> Groups available </h1>
+    <div id="groups">
+
+    </div>
+
+    <script>
+        let groups_ = document.getElementById('groups')
+
+        let getGroups = async () => {
+            let response = await fetch('http://127.0.0.1:8000/api/groups/')
+            let groups = await response.json()
+            console.log(groups)
+
+            groups.map((group) => {
+                let row = `<p><strong>${group.name}</strong></p>`
+                groups_.innerHTML += row
+            })
+        }
+
+        getGroups()
+    </script>
+</body>
+</html>
