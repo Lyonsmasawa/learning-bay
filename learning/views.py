@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.db.models import Q
 from learning.forms import GroupForm
-from .models import Group, Language
+from .models import Group, Language, Message
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -66,15 +66,27 @@ def home(request):
         Q(description__icontains=q)
     )
     languages = Language.objects.all()
+    group_messages  = Message.objects.filter(Q(group__name__icontains = q))
     group_count = groups.count()
 
-    context = {'groups' : groups, 'languages': languages, 'groups_count': group_count, } #dictionary
+    context = {'groups' : groups, 'languages': languages, 'groups_count': group_count, 'group_messages': group_messages, } #dictionary
     return render(request, 'learning/home.html', context)
 
 def group(request, pk):
     group = Group.objects.get(id = pk)
+    group_messages = group.message_set.all().order_by('-created') #many to one
+    members = group.members.all() # many to many
 
-    context = {'group' : group}
+    if request.method == 'POST':
+        group_message = Message.objects.create(
+            user = request.user,
+            group = group,
+            body = request.POST.get('body')
+        )
+        group.members.add(request.user)  #add a new member, use remove() to remove a member
+        return redirect('group', pk=group.id)
+
+    context = {'group' : group, 'group_messages':group_messages, 'members': members,}
     return render(request, 'learning/group.html', context)
 
 @login_required(login_url='login-page')
@@ -120,4 +132,18 @@ def deleteGroup(request, pk):
         return redirect('home')
 
     context = {'obj' : group }
+    return render(request, 'learning/delete.html', context)
+
+@login_required(login_url='login-page')
+def deleteMessage(request, pk):
+    message = Message.objects.get(id=pk)
+
+    if request.user != message.user:
+        return HttpResponse("You are not authorized")
+
+    if request.method == 'POST':
+        message.delete()
+        return redirect('home')
+
+    context = {'obj' : message }
     return render(request, 'learning/delete.html', context)

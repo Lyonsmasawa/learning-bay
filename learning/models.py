@@ -13,7 +13,7 @@ class Group(models.Model):
     name = models.CharField(max_length=200)
     language = models.ForeignKey(Language, on_delete=models.SET_NULL, null=True)
     description = models.TextField(null=True, blank=True) #blank is for submission, null is for the database
-    # members
+    members = models.ManyToManyField(User, related_name='members', blank=True)
     created = models.DateTimeField(auto_now_add=True) #once
     updated = models.DateTimeField(auto_now=True) #every time
 
@@ -29,6 +29,9 @@ class Message(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True) #once
     updated = models.DateTimeField(auto_now=True) #every time
+
+    class Meta:
+        ordering = ['-updated', '-created']
 
     def __str__(self):
         return self.body[0:50]
