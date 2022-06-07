@@ -1,12 +1,12 @@
 <h3>Browse Languages</h3>
 <hr>
 <div class="">
-    <a href="{% url 'home' %}">All Languages</a>
+    <a href="{% url 'home' %}">All Languages <span> {{languages.count}}</span></a>
 </div>
 
 {% for lang in languages %}
 
 <div class="">
-    <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}}</a>
+    <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}} <span>{{lang.group_set.all.count}}</span></a>
 </div>
 {% endfor %}
