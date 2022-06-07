@@ -107,7 +107,9 @@ def createGroup(request):
         # print(request.POST)
         form = GroupForm(request.POST)
         if form.is_valid():
-            form.save()
+            group = form.save(commit=False)
+            group.host = request.user
+            group.save
             return redirect('home')
 
     context = { 'form': form, }
