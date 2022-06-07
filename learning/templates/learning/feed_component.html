@@ -1,0 +1,16 @@
+<div class="">
+    {% for group in groups %}
+    <div>
+
+        {% if request.user == group.leader %}
+        <a href="{% url 'update-group' group.id %}">Edit Group</a>
+        <a href="{% url 'delete-group' group.id %}">Delete Group</a>
+        {% endif %}
+
+        <span>@{{group.leader}}</span>
+        <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>
+        <!-- /group/{{group.id}} -->
+        <small>{{group.language.name}}</small>
+    </div>
+    {% endfor %}
+</div>

@@ -12,57 +12,17 @@
 <div class="home">
 
     <div class="">
-        <h3>Browse Languages</h3>
-        <hr>
-        <div class="">
-            <a href="{% url 'home' %}">All Languages</a>
-        </div>
-
-        {% for lang in languages %}
-
-        <div class="">
-            <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}}</a>
-        </div>
-        {% endfor %}
-
+        {% include 'learning/languages_component.html' %}
     </div>
 
     <div class="">
         <h5>{{groups_count}} study groups available</h5>
         <a href="{% url 'create-group' %}">Create Group</a>
-        {% for group in groups %}
-        <div>
-
-            {% if request.user == group.leader %}
-            <a href="{% url 'update-group' group.id %}">Edit Group</a>
-            <a href="{% url 'delete-group' group.id %}">Delete Group</a>
-            {% endif %}
-
-            <span>@{{group.leader}}</span>
-            <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>
-            <!-- /group/{{group.id}} -->
-            <small>{{group.language.name}}</small>
-        </div>
-        {% endfor %}
+        {% include 'learning/feed_component.html' %}
     </div>
 
     <div class="">
-        <h3>Recent Activity</h3>
-        <hr>
-
-        {% for message  in group_messages %}
-        <div class="">
-            <small>@{{message.user}} -- {{message.created | timesince }}</small>
-            <small>replied to "{{message.group}}"</small>
-            <p>{{message}}</p>
-            {% if request.user == message.user %}
-            <a href="{% url 'delete-message' message.id %}">Delete</a>
-            {% endif %}
-            <hr>
-
-        </div>
-        {% endfor %}
-
+        {% include 'learning/activity_component.html' %}
     </div>
 
 </div>
