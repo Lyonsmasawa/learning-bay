@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <style>
+        .profile{
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+    </style>
+    
+    <h1>{{user.username}}</h1>
+    <div class="profile">
+        <div class="">
+            {% include 'learning/languages_component.html' %}
+        </div>
+        <div class="">
+            {% include 'learning/feed_component.html' %}
+        </div>
+        <div class="">
+            {% include 'learning/activity_component.html' %}
+        </div>
+    </div>
+{% endblock content %}

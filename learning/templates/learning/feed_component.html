@@ -7,7 +7,7 @@
         <a href="{% url 'delete-group' group.id %}">Delete Group</a>
         {% endif %}
 
-        <span>@{{group.leader}}</span>
+        <a href="{% url 'profile' group.leader.id %}">@{{group.leader.username}}</a>
         <h5>{{ group.id }} -- <a href="{% url 'group' group.id %}">{{ group.name }}</a></h5>
         <!-- /group/{{group.id}} -->
         <small>{{group.language.name}}</small>

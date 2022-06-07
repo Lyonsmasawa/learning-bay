@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.db.models import Q
@@ -71,6 +72,15 @@ def home(request):
 
     context = {'groups' : groups, 'languages': languages, 'groups_count': group_count, 'group_messages': group_messages, } #dictionary
     return render(request, 'learning/home.html', context)
+
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    groups = user.group_set.all()
+    group_messages = user.message_set.all()
+    languages = Language.objects.all()
+
+    context = {'user': user, 'groups': groups, 'group_messages': group_messages, 'languages': languages,}
+    return render(request, 'learning/profile.html', context)
 
 def group(request, pk):
     group = Group.objects.get(id = pk)
