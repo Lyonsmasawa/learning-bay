@@ -7,6 +7,6 @@
 {% for lang in languages %}
 
 <div class="">
-    <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}} <span>{{lang.group_set.all.count}}</span></a>
+    <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}} <span>{{lang.group_set.all.count }}</span></a>
 </div>
 {% endfor %}
