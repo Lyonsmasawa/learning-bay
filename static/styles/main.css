@@ -59,6 +59,12 @@ hr {
     height: 40px;
 }
 
+.list img {
+    width: 12%;
+    align-self: center;
+    margin-top: 1rem;
+}
+
 .nav__login a {
     text-decoration: none;
     font-weight: 800;

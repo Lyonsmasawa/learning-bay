@@ -1,7 +1,7 @@
 {% load static %}
 <nav>
     <div class="nav__logo">
-        <img src="{% static 'img/logo.png' %}" alt="try" />
+        <img src="{% static 'img/logo.png' %}" alt="Moringa" />
     </div>
 
     <div class="nav__title">
@@ -9,7 +9,7 @@
     </div>
 
     <div class="nav__search">
-        <img src="{% static 'img/search.png' %}" alt="try" />
+        <img src="{% static 'img/search.png' %}" alt="Search" />
         <form action="{% url 'home' %}" method="get">
             <input type="text" name="q" placeholder="Search by keyword . . ." />
             <hr>
@@ -21,7 +21,7 @@
         <p>Hello {{request.user}}</p>
         <a href="{% url 'logout' %}">LogOut</a>
         {% else %}
-        <img src="{% static 'img/user.png' %}" alt="try" />
+        <img src="{% static 'img/user.png' %}" alt="User" />
         <a href="{% url 'login-page' %}">Login</a>
         {% endif %}
     </div>
