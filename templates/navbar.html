@@ -1,13 +1,28 @@
-<h2>Navbar</h2>
+{% load static %}
+<nav>
+    <div class="nav__logo">
+        <img src="{% static 'img/logo.png' %}" alt="try" />
+    </div>
 
-<form action="{% url 'home' %}" method="get">
-    <input type="text" name="q" placeholder="Search . . ." />
-</form>
+    <div class="nav__title">
+        <h2><strong>LearningBay</strong></h2>
+    </div>
 
+    <div class="nav__search">
+        <img src="{% static 'img/search.png' %}" alt="try" />
+        <form action="{% url 'home' %}" method="get">
+            <input type="text" name="q" placeholder="Search by keyword . . ." />
+            <hr>
+        </form>
+    </div>
 
-{% if request.user.is_authenticated %}
-<p>Hello {{request.user}}</p>
-<a href="{% url 'logout' %}">LogOut</a>
-{% else %}
-<a href="{% url 'login-page' %}">Login</a>
-{% endif %}
+    <div class="nav__login">
+        {% if request.user.is_authenticated %}
+        <p>Hello {{request.user}}</p>
+        <a href="{% url 'logout' %}">LogOut</a>
+        {% else %}
+        <img src="{% static 'img/user.png' %}" alt="try" />
+        <a href="{% url 'login-page' %}">Login</a>
+        {% endif %}
+    </div>
+</nav>
