@@ -11,12 +11,14 @@ body {
 
 nav {
     display: flex;
+    position: sticky;
+    top: 0;
     align-items: center;
     justify-content: space-between;
     padding-left: .5%;
     padding-right: .5%;
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(105, 105, 105, 0.096);
 }
 
 .nav__logo img {
@@ -77,6 +79,10 @@ hr {
     grid-template-columns: 1fr 3fr 1fr;
 }
 
+.learning {
+    position: ;
+}
+
 .lang {
     display: flex;
     flex-direction: column;
@@ -132,7 +138,7 @@ hr {
 
 .activity__sec {
     background-color: #101E3C;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .activity {
@@ -147,6 +153,7 @@ hr {
     font-weight: 800;
     font-size: 1.8rem;
     line-height: 2rem;
+    margin-top: .6rem;
     letter-spacing: 0.25em;
     color: rgba(255, 255, 255, 0.3)
 }
@@ -225,7 +232,7 @@ hr {
     font-weight: 800;
 }
 
-.fa-times {
+.fa {
     color: #FFFFFF;
     font-weight: 300;
 }
@@ -241,4 +248,140 @@ hr {
     font-weight: 300;
     font-size: .8rem;
     padding: 5px;
+}
+
+.feed__sec {
+    min-height: 100vh;
+    background-color: #FFFFFF;
+}
+
+.feed__upper {
+    background-color: #E7E7E7;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #101E3C;
+}
+
+.feed__upper h2 {
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: #101E3C;
+}
+
+.feed__create {
+    background: #FF4702;
+    border-radius: 4px;
+    border: none;
+    padding: 9px;
+}
+
+.feed__create a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.feed {
+    padding: 0px 15px 10px 15px;
+}
+
+.feed__inner {
+    background: #101E3C;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.feed__prof {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feed__prof img {
+    height: 40px;
+}
+
+.feed__name {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.feed__name a {
+    color: #FFFFFF;
+}
+
+.topic {
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+}
+
+.topic a {
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration-line: underline;
+    text-decoration-thickness: .1rem;
+}
+
+.feed hr {
+    color: #e9e9e9b2;
+}
+
+.desc {
+    padding: 4px 0px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.desc h5 {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.desc p {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: .7rem;
+    padding: 2px 0px;
+}
+
+.feed__time {
+    color: white;
+    font-size: 0.6rem;
+}
+
+.feed__lang {
+    color: white;
+    font-weight: 600;
+}
+
+.feed__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feed__btn {
+    background: #FF4702;
+    border-radius: 4px;
+    width: max-content;
+    padding: 2px 6px;
+    margin-top: 5px;
+}
+
+.feed__members {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.feed__numbers {
+    color: #FF4702;
+    font-weight: 700;
 }

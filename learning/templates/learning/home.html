@@ -5,13 +5,21 @@
 
 <div class="home">
 
-    <div class="">
+    <div class="learning">
         {% include 'learning/languages_component.html' %}
     </div>
 
-    <div class="">
-        <h5>{{groups_count}} study groups available</h5>
-        <a href="{% url 'create-group' %}">Create Group</a>
+    <div class="feed__sec">
+        <div class="feed__upper">
+            <div class="feed__s">
+                <h2>GROUPS</h2>
+                <h5>{{groups_count}} Study Groups available</h5>
+                <p></p>
+            </div>
+            <button class="feed__create">
+                <a href="{% url 'create-group' %}">+ Create Group</a>
+            </button>
+        </div>        
         {% include 'learning/feed_component.html' %}
     </div>
 
