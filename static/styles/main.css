@@ -1,12 +1,15 @@
-*{
+* {
     font-family: 'Inter', sans-serif;
-    margin:0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
 body {
-    background: whitesmoke;
+    background: #ECECEC;
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,49 +19,107 @@ nav{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.nav__logo img{
+.nav__logo img {
     height: 45px;
 }
 
-.nav__title{
+.nav__title {
     font-weight: 800;
     font-size: 1.4rem;
     color: #101E3C;
 }
 
-.nav__search{
+.nav__search {
     display: flex;
     color: #101E3C;
 }
 
-.nav__search img{
+.nav__search img {
     height: 30px;
 }
 
-.nav__search input{
+.nav__search input {
     outline: none;
     border: none;
     color: #101E3C;
 }
 
-hr{
-   color: #101E3C;
+hr {
+    color: #101E3C;
 }
 
-.nav__login{
+.nav__login {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
 }
 
-.nav__login img{
+.nav__login img {
     height: 40px;
 }
 
-.nav__login a{
+.nav__login a {
     text-decoration: none;
     font-weight: 800;
     font-size: 1.2rem;
     color: #101E3C;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.lang {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #101E3C;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.lang__title{
+    padding-top: 1rem;
+    padding-left: .05rem;
+    padding-right: 1rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.lang hr {
+    height: 6px;
+    margin-right: 5%;
+    left: 0px;
+    background: #FFFFFF;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.lang__list{
+    padding: 1rem;
+}
+
+.list__title a{
+    color: #DEDEDE;
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list{
+    padding: .5rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.list a{
+    color: #D1D1D1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
 }
