@@ -36,9 +36,9 @@
 
         <div class="group__converse">
             {% for message in group_messages %}
-            <div class="">
+            <div class="converse__box">
                 <div class="conversation__profile">
-                    <p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p>
+                    <a href="{% url 'profile' message.user.id %}"><p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p></a>
                     <small> {{message.created | timesince}} ago
                         <strong>
                             {% if request.user == group.leader %}
@@ -49,7 +49,7 @@
                     </small>
                 </div>
                 <p class="conversation__body">{{message.body}}
-                    <hr>
+                    <hr class="hr">
                     <br>
                 </p>
             </div>
@@ -59,10 +59,10 @@
 
 
         {% if request.user.is_authenticated %}
-        <div class="">
+        <div class="message__entry">
             <form action="" method="post">
                 {% csrf_token %}
-                <input type="text" name="body" placeholder="Write your message here ..." />
+                <input type="text" name="body" placeholder="Write your views here . . ." />
 
             </form>
         </div>

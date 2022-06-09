@@ -479,6 +479,11 @@ hr {
     justify-content: space-between;
 }
 
+.conversation__profile a {
+    text-decoration: none;
+    color: black;
+}
+
 .conversation__profile p {
     display: flex;
     align-items: center;
@@ -490,12 +495,12 @@ hr {
 }
 
 .conversation__profile small {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .conversation__body{
     padding: 0px 15px 7px 15px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .x {
@@ -504,4 +509,25 @@ hr {
     border-radius: 4px;
     font-weight: 800; 
     padding: 2px 5px;
+}
+
+.hr {
+    border: 0.001rem solid rgba(16, 30, 60, 0.5);
+    opacity: .4;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.message__entry {
+    width: 100%;
+}
+
+.message__entry input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+    font-size: 1.3rem;
+    padding: 10px;
 }
