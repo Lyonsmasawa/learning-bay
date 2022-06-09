@@ -1,33 +1,57 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-
-<style>
-    .group {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-    }
-</style>
-
 <div class="group">
-    <div class="">
-        <h1>{{group.name}}</h1>
+    <div class="group__full">
+        <div class="group__header">
+            <h1 class="group__title"><a href="{% url 'home' %}"><img src="{% static 'img/back.png' %}" alt="back">
+                </a>{{group.name}}</h1>
+            <p class="group__lang">{{group.language}}</p>
+        </div>
 
-        <p>{{group.description}}</p>
+        <div class="group__leader">
+            <p class="activity__icon">
+                <img src="{% static 'img/userx.png' %}" alt=". . ." />
+                <span class="act__del">
+                    <span class="activity__time">
+                        <a href="{% url 'profile' group.leader.id %}">&nbsp; Leader <span class="leader__name">@
+                                {{group.leader}}</span></a>
+                        &nbsp;{{ group.created | timesince }} ago
+                    </span>
+                </span>
+            </p>
+            <p><small class="feed__members">
+                    <span class="feed__numbers">{{ group.members.all.count }}</span> members
+                </small>
+            </p>
+        </div>
 
-        <div class="">
-            <h3>Conversations</h3>
-            <hr>
 
+        <div class="group__descr">
+            <h3>Description</h3>
+            <p>{{group.description}}</p>
+            <p>&nbsp;</p>
+        </div>
+
+        <div class="group__converse">
             {% for message in group_messages %}
             <div class="">
-
-                {% if request.user == message.user %}
-                <a href="{% url 'delete-message' message.id %}">Delete</a>
-                {% endif %}
-                <small>@{{message.user}} {{message.created | timesince}} ago</small>
-                <p>{{message.body}}</p>
-                <hr>
+                <div class="conversation__profile">
+                    <p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p>
+                    <small> {{message.created | timesince}} ago
+                        <strong>
+                            {% if request.user == group.leader %}
+                            <a href="{% url 'delete-message' message.id %}"><i class="fa fa-times x"
+                                    aria-hidden="true"></i></a>
+                            {% endif %}
+                        </strong>
+                    </small>
+                </div>
+                <p class="conversation__body">{{message.body}}
+                    <hr>
+                    <br>
+                </p>
             </div>
             {% endfor %}
 
@@ -45,8 +69,8 @@
         {% endif %}
     </div>
 
-    <div class="">
-        <h3>Members</h3>
+    <div class="group__member">
+        <h3>Group Members</h3>
         <hr>
 
         {% for member in members %}
