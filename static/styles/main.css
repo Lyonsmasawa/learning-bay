@@ -358,7 +358,7 @@ hr {
 }
 
 .feed__lang {
-    color: rgba(255, 255, 255, 0.696);
+    color: rgb(255, 255, 255);
     font-weight: 600;
 }
 
@@ -392,7 +392,7 @@ hr {
     min-height: 100vh;
     padding: 20px;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .group__full {
@@ -400,6 +400,7 @@ hr {
     padding: 15px;
     border-radius: 8px;
     color: white;
+    font-size: .9rem;
     flex: 2;
 }
 
@@ -425,7 +426,7 @@ hr {
 
 .group__title {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     color: #FF4702;
     font-weight: 900;
     /* font-size: 32px; */
@@ -581,7 +582,8 @@ hr {
 .login__reg {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100vh;
+    min-height: 100vh;
+    padding: 20px;
     place-items: center;
     background-image: linear-gradient(to right top, #101e3c, #3c415d, #67697f, #9393a4, #c1c0ca, #c1c0ca, #c1c0ca, #c1c0ca, #9393a4, #67697f, #3c415d, #101e3c);
 }

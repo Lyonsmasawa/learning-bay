@@ -2,32 +2,37 @@
 
 
 {% block content %}
-<div>
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="">
-            <label for="">Language</label> <br>
-            <input type="text" list="language-list" value="{{group.language.name}}" name="language" />
-            <datalist id="language-list">
-                <select name="" id="language-options">
-                    {% for lang in languages %}
-                    <option value="{{lang.name}}">{{lang.name}}</option>
-                    {% endfor %}
-                </select>
-            </datalist>
-        </div>
-
-        <div class="">
-            <label for="">Group Name</label> <br>
-            {{form.name}}
-        </div>
-
-        <div class="">
-            <label for="">Description</label> <br>
-            {{form.description}}
-        </div>
-
-        <input type="Submit" value="Submit">
-    </form>
+<div class="login__reg">
+    <div class="login__page">        
+        <h2>LearningBay</h2>
+        <p>&nbsp;</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="reg__fields">
+                <h3 for="">Group Topic</h3>
+                {{form.name}}
+            </div>
+            <p>&nbsp;</p>
+            <div class="reg__fields">
+                <h3 for="">Language</h3>
+                <input type="text" list="language-list" value="{{group.language.name}}" name="language" />
+                <datalist id="language-list">
+                    <select name="" id="language-options">
+                        {% for lang in languages %}
+                        <option value="{{lang.name}}">{{lang.name}}</option>
+                        {% endfor %}
+                    </select>
+                </datalist>
+            </div>
+            <p>&nbsp;</p>
+            <div class="reg__fields">
+                <h3 for="">Description</h3>
+                <p>&nbsp;</p>
+                {{form.description}}
+            </div>
+            <p>&nbsp;</p>
+            <input type="Submit" class="btn" value="Submit">
+        </form>
+    </div>
 </div>
 {% endblock content %}

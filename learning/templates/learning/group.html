@@ -78,7 +78,9 @@
             <div class="group__members">
                 {% for member in members %}
                 <div class="vr">
-                    <p class="groupMembers__group"><img src="{% static 'img/iconorange.png' %}" alt=""> @{{member.username}}</p>
+                    <a href="{% url 'profile' member.id %}">
+                        <p class="groupMembers__group"><img src="{% static 'img/iconorange.png' %}" alt=""> @{{member.username}}</p>
+                    </a>
                 </div>
                 {% endfor %}
             </div>
