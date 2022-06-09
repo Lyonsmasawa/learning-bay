@@ -1,36 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+
+<div class="login__reg">
     {% if page == "login" %}
-    <div class="">
+    <div class="login__page">
+        <h2>LearningBay</h2>
         <form action="" method="post">
+            <p>&nbsp;</p>
             {% csrf_token %}
             <label for="">Username:</label>
             <input type="text" name="username" placeholder="Enter username">
-
+            <p>&nbsp;</p>
             <label for="">Password:</label>
             <input type="password" name="password" placeholder="Enter Password">
-
-            <input type="submit" value="Login">
+            <p>&nbsp;</p>
+            <input type="submit" class="btn" value="Login">
 
         </form>
-
-        <p>Haven't signed up yet</p>
-        <a href="{% url 'register' %}">Register</a>
+        <p>&nbsp;</p>
+        <div class="login__register">
+            <p>Haven't registered up yet ?</p>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
     </div>
     {% else %}
-    <div class="">
+    <div class="login__page">
+        <h2>LearningBay</h2>
         <form action="" method="post">
             {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Register">
+            {% for field in form %}
+            <div class="reg__fields">
+                <label for="{{field.label}}">{{field.label}}</label>
+                <p>{{field}}</p>
+            </div>
+            {% endfor %}
+            <p>&nbsp;</p>
+            <input type="submit" class="btn" value="Register">
         </form>
+        <div class="login__register">
+            <p>Already registered ?</p>
+            <a href="{% url 'login-page' %}">Login</a>
+        </div>
 
-        <p>Already a Member</p>
-        <a href="{% url 'register' %}">Register</a>
-    </div>        
+    </div>
     {% endif %}
-        
+</div>
+
 {% endblock content %}
-    
