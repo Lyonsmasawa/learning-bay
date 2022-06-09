@@ -38,12 +38,14 @@
             {% for message in group_messages %}
             <div class="converse__box">
                 <div class="conversation__profile">
-                    <a href="{% url 'profile' message.user.id %}"><p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p></a>
+                    <a href="{% url 'profile' message.user.id %}">
+                        <p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p>
+                    </a>
                     <small> {{message.created | timesince}} ago
                         <strong>
                             {% if request.user == group.leader %}
                             <a href="{% url 'delete-message' message.id %}"><i class="fa fa-times x"
-                                    aria-hidden="true"></i></a> 
+                                    aria-hidden="true"></i></a>
                             {% endif %}
                         </strong>
                     </small>
@@ -70,14 +72,17 @@
     </div>
 
     <div class="group__member">
-        <h3>Group Members</h3>
-        <hr>
+        <div class="group__innersec">
+            <h3 class="groupMember__lang">Group Members</h3>
 
-        {% for member in members %}
-        <div class="">
-            <p>@{{member.username}}</p>
+            <div class="group__members">
+                {% for member in members %}
+                <div class="vr">
+                    <p class="groupMembers__group"><img src="{% static 'img/iconorange.png' %}" alt=""> @{{member.username}}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
 
     </div>
 </div>

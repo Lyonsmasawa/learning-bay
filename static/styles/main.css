@@ -387,8 +387,7 @@ hr {
 }
 
 .group {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
     background-color: white;
     min-height: 100vh;
     padding: 20px;
@@ -401,11 +400,13 @@ hr {
     padding: 15px;
     border-radius: 8px;
     color: white;
+    flex: 2;
 }
 
 .group__member {
     background-color: #101E3C;
     border-radius: 8px;
+    flex: 1;
 }
 
 
@@ -498,7 +499,7 @@ hr {
     font-weight: 500;
 }
 
-.conversation__body{
+.conversation__body {
     padding: 0px 15px 7px 15px;
     font-weight: 400;
 }
@@ -507,7 +508,7 @@ hr {
     color: #FF4702;
     border: 2px solid #101E3C;
     border-radius: 4px;
-    font-weight: 800; 
+    font-weight: 800;
     padding: 2px 5px;
 }
 
@@ -530,4 +531,50 @@ hr {
     outline: none;
     font-size: 1.3rem;
     padding: 10px;
+}
+
+.group__member {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.group__innersec {
+    padding: 20px;
+}
+
+.groupMember__lang {
+    color: #FF4702;
+    width: max-content;
+    border: 2px solid #FF4702;
+    border-radius: 25px;
+    font-weight: 700;
+    padding: 5px 10px;
+}
+
+.group__members {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 25px;
+}
+
+.groupMembers__group {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    color: #bdbdbd;
+    margin-left: 5px;
+}
+
+.groupMembers__group img {
+    height: 50px;
+}
+
+.vr {
+    display: inline;
+    height: 100%;
+    width: 1px;
+    border: 1px inset;
+    margin: 5px;
+    color: #FF4702;
 }
