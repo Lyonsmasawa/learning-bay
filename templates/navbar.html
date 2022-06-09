@@ -1,11 +1,13 @@
 {% load static %}
 <nav>
     <div class="nav__logo">
-        <img src="{% static 'img/logo.png' %}" alt="Moringa" />
+        <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt="Moringa" /></a>
     </div>
 
     <div class="nav__title">
-        <h2><strong>LearningBay</strong></h2>
+        <a href="{% url 'home' %}">
+            <h2><strong>LearningBay</strong></h2>
+        </a>
     </div>
 
     <div class="nav__search">
@@ -18,8 +20,14 @@
 
     <div class="nav__login">
         {% if request.user.is_authenticated %}
-        <p>Hello {{request.user}}</p>
-        <a href="{% url 'logout' %}">LogOut</a>
+        <div class="logged__name">
+            <img src="{% static 'img/user.png' %}" alt="User" />
+            <p>{{request.user}}</p>
+            <p>&nbsp;</p>
+        </div>
+        <div class="logged__in">
+            <a href="{% url 'logout' %}">LogOut</a>
+        </div>
         {% else %}
         <img src="{% static 'img/user.png' %}" alt="User" />
         <a href="{% url 'login-page' %}">Login</a>

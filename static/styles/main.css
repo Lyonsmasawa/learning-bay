@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 body {
     background: #ECECEC;
 }
@@ -74,13 +79,34 @@ hr {
     color: #101E3C;
 }
 
+.logged__in {
+    display: flex;
+    flex-direction: column;
+}
+
+.logged__name {
+    display: flex;
+    align-items: center;
+}
+
+.logged__name img {
+    height: 28px;
+}
+
+.logged__name p{
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.logged__in a {
+    font-size: .8rem;
+    border: 2px solid #FF4702;
+    padding: 5px;
+}
+
 .home {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-}
-
-.learning {
-    position: ;
 }
 
 .lang {
