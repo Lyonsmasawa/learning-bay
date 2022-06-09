@@ -1,24 +1,22 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
-    <style>
-        .profile{
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
-        }
-    </style>
-    
-    <h1>{{user.username}}</h1>
-    <div class="profile">
-        <div class="">
-            {% include 'learning/languages_component.html' %}
-        </div>
-        <div class="">
-            {% include 'learning/feed_component.html' %}
-        </div>
-        <div class="">
-            {% include 'learning/activity_component.html' %}
-        </div>
+<div class="profile__section">
+    <div class="profile__details">
+        <h1>User: {{user.username.upper}}</h1>
+        <p> &nbsp; in {{groups.count}} Study Groups</p>
     </div>
+    <p class="profile__image"></p>
+</div>
+<div class="profile">
+    <div class="profile__feed">
+        <p>&nbsp;</p>
+        <h2>User Groups: <small> ~{{user.username}}~ &nbsp;</small></h2>
+        {% include 'learning/feed_component.html' %}
+    </div>
+    <div class="profile__messages">
+        {% include 'learning/activity_component.html' %}
+    </div>
+</div>
 {% endblock content %}
