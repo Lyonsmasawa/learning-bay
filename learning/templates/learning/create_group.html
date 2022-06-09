@@ -3,8 +3,8 @@
 
 {% block content %}
 <div class="login__reg">
-    <div class="login__page">        
-        <h2>LearningBay</h2>
+    <div class="login__page">
+        <h2> LearningBay </h2>
         <p>&nbsp;</p>
         <form action="" method="post">
             {% csrf_token %}
@@ -32,6 +32,7 @@
             </div>
             <p>&nbsp;</p>
             <input type="Submit" class="btn" value="Submit">
+            <h3 class="back"><a href="{{request.META.HTTP_REFERER}}"> < Back</a></>
         </form>
     </div>
 </div>
