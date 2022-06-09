@@ -358,7 +358,7 @@ hr {
 }
 
 .feed__lang {
-    color: white;
+    color: rgba(255, 255, 255, 0.696);
     font-weight: 600;
 }
 
@@ -633,6 +633,17 @@ hr {
     cursor: pointer;
 }
 
+.back a{
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.1rem;
+    width: fit-content;
+    background-color: white;
+    color:#101E3C;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
 .login__register {
     display: flex;
     flex-direction: column;
