@@ -1,40 +1,43 @@
 {% load static %}
 <div class="feed">
-    {% for group in groups %}
-    <div class="feed__inner">
-        <div class="feed__prof">
-            <div class="">
-                <div class="feed__name">
-                    <img src="{% static 'img/userx.png' %}" alt=". . ." />
-                    <a href="{% url 'profile' group.leader.id %}">Leader @{{group.leader.username}}</a>
+    <div class="feed__div">
+        {% for group in groups %}
+        <div class="feed__inner">
+            <div class="feed__prof">
+                <div class="">
+                    <div class="feed__name">
+                        <img src="{% static 'img/userx.png' %}" alt=". . ." />
+                        <a href="{% url 'profile' group.leader.id %}">Leader @{{group.leader.username}}</a>
+                    </div>
+                </div>
+                <div class="">
+                    <small class="feed__time">{{group.created | timesince }} ago</small>
+                    {% if request.user == group.leader %}
+                    <a href="{% url 'update-group' group.id %}"><i class="fa fa-edit"></i></a>&nbsp;
+                    <a href="{% url 'delete-group' group.id %}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="">
-                <small class="feed__time">{{group.created | timesince }} ago</small>
-                {% if request.user == group.leader %}
-                <a href="{% url 'update-group' group.id %}"><i class="fa fa-edit"></i></a>&nbsp;
-                <a href="{% url 'delete-group' group.id %}"><i class="fa fa-times" aria-hidden="true"></i></a>
-                {% endif %}
+
+
+            <div class="topic">
+                <h3>Topic: &nbsp; </h3><a href="{% url 'group' group.id %}">{{ group.name }}</a>
+            </div>
+
+            <div class="desc">
+                <h5>Description:&nbsp;</h5>
+                <p>{{group.description}}</p>
+            </div>
+            <hr>
+            <!-- /group/{{group.id}} -->
+            <div class="feed__footer">
+                <div class="feed__btn">
+                    <small class="feed__lang">{{group.language.name}}</small>
+                </div>
+                <small class="feed__members"><span class="feed__numbers">{{ group.members.all.count }}</span>
+                    members</small>
             </div>
         </div>
-
-
-        <div class="topic">
-            <h3>Topic: &nbsp; </h3><a href="{% url 'group' group.id %}">{{ group.name }}</a>
-        </div>
-
-        <div class="desc">
-            <h5>Description:&nbsp;</h5>
-            <p>{{group.description}}</p>
-        </div>
-        <hr>
-        <!-- /group/{{group.id}} -->
-        <div class="feed__footer">
-            <div class="feed__btn">
-                <small class="feed__lang">{{group.language.name}}</small>
-            </div>
-            <small class="feed__members"><span class="feed__numbers">{{ group.members.all.count }}</span> members</small>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>

@@ -35,27 +35,29 @@
         </div>
 
         <div class="group__converse">
-            {% for message in group_messages %}
-            <div class="converse__box">
-                <div class="conversation__profile">
-                    <a href="{% url 'profile' message.user.id %}">
-                        <p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p>
-                    </a>
-                    <small> {{message.created | timesince}} ago
-                        <strong>
-                            {% if request.user == group.leader %}
-                            <a href="{% url 'delete-message' message.id %}"><i class="fa fa-times x"
-                                    aria-hidden="true"></i></a>
-                            {% endif %}
-                        </strong>
-                    </small>
+            <div class="g__c">
+                {% for message in group_messages %}
+                <div class="converse__box">
+                    <div class="conversation__profile">
+                        <a href="{% url 'profile' message.user.id %}">
+                            <p><img src="{% static 'img/icon.png' %}" alt=""> @{{message.user.username}}</p>
+                        </a>
+                        <small> {{message.created | timesince}} ago
+                            <strong>
+                                {% if request.user == group.leader %}
+                                <a href="{% url 'delete-message' message.id %}"><i class="fa fa-times x"
+                                        aria-hidden="true"></i></a>
+                                {% endif %}
+                            </strong>
+                        </small>
+                    </div>
+                    <p class="conversation__body">{{message.body}}
+                        <hr class="hr">
+                        <br>
+                    </p>
                 </div>
-                <p class="conversation__body">{{message.body}}
-                    <hr class="hr">
-                    <br>
-                </p>
+                {% endfor %}
             </div>
-            {% endfor %}
 
         </div>
 
@@ -79,7 +81,8 @@
                 {% for member in members %}
                 <div class="vr">
                     <a href="{% url 'profile' member.id %}">
-                        <p class="groupMembers__group"><img src="{% static 'img/iconorange.png' %}" alt=""> @{{member.username}}</p>
+                        <p class="groupMembers__group"><img src="{% static 'img/iconorange.png' %}" alt="">
+                            @{{member.username}}</p>
                     </a>
                 </div>
                 {% endfor %}

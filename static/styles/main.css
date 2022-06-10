@@ -11,7 +11,10 @@ a {
 }
 
 body {
-    background: #bbbbbb;
+    background: #b3b3b3;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 nav {
@@ -23,7 +26,8 @@ nav {
     padding-left: .5%;
     padding-right: .5%;
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(105, 105, 105, 0.096);
+    box-shadow: 0px 5px 5px rgba(170, 170, 170, 0.336);
+    z-index: 1001;
 }
 
 .nav__logo img {
@@ -32,7 +36,7 @@ nav {
 
 .nav__title {
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #101E3C;
 }
 
@@ -93,7 +97,7 @@ hr {
     height: 28px;
 }
 
-.logged__name p{
+.logged__name p {
     text-transform: capitalize;
     font-weight: 800;
 }
@@ -107,6 +111,8 @@ hr {
 .home {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .lang {
@@ -115,6 +121,7 @@ hr {
     align-items: left;
     background-color: #101E3C;
     border-radius: 0px 0px 5px 5px;
+    width: 100%;
 }
 
 .lang__title {
@@ -152,6 +159,30 @@ hr {
     font-weight: 600;
     display: flex;
     flex-direction: column;
+    position: relative;
+    min-height: 55vh;
+}
+
+.list__div {
+    position: absolute;
+    top: 0px;
+    padding: 5px 17px 5px 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.list__div::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.list__div {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .list a {
@@ -165,22 +196,27 @@ hr {
 .activity__sec {
     background-color: #101E3C;
     min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
 .activity {
     display: flex;
     flex-direction: column;
     background-color: #101E3C;
-    align-items: left;
     padding-left: 6px;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .bay {
     font-weight: 800;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 2rem;
     margin-top: .6rem;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.1em;
+
+    width: 100%;
     color: rgba(255, 255, 255, 0.3)
 }
 
@@ -200,8 +236,34 @@ hr {
     justify-content: flex-start;
 }
 
+.activity__abs {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    min-height: 100vh;
+}
+
 .act__container {
-    padding: 0px 10px 5px 10px;
+    padding: 0px 10px 10px 10px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.act__container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.act__container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .activity__card {
@@ -278,16 +340,21 @@ hr {
 
 .feed__sec {
     min-height: 100vh;
-    background-color: #FFFFFF;
+    background-color: #ffffffc2;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
 .feed__upper {
-    background-color: #E7E7E7;
+    background-color: #fafafa;
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #101E3C;
+    width: 100%;
+    box-shadow: 0px 4px 5px rgba(146, 146, 146, 0.63);
 }
 
 .feed__upper h2 {
@@ -301,6 +368,7 @@ hr {
     border-radius: 4px;
     border: none;
     padding: 9px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.315);
 }
 
 .feed__create a {
@@ -311,7 +379,38 @@ hr {
 }
 
 .feed {
-    padding: 0px 15px 10px 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.feed__div {
+    min-height: 100vh;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+    padding: 0px 10px 10px 10px;
+    scroll-behavior: smooth;
+}
+
+.feed__div::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.feed__div {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .feed__inner {
@@ -415,10 +514,9 @@ hr {
 .group {
     display: flex;
     background-color: white;
-    min-height: 100vh;
     padding: 20px;
-    display: flex;
     gap: 20px;
+    width: 100%;
 }
 
 .group__full {
@@ -427,6 +525,7 @@ hr {
     border-radius: 8px;
     color: white;
     font-size: .9rem;
+    width: 100%;
     flex: 2;
 }
 
@@ -494,11 +593,41 @@ hr {
 }
 
 .group__converse {
-    padding: 15px 20px;
+    padding: 10px;
+    position: relative;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     color: black;
+    min-height: 40vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.g__c {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.g__c::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.g__c {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.converse__box {
+    padding-right: 10px;
 }
 
 .conversation__profile {
@@ -555,7 +684,7 @@ hr {
     background: transparent;
     color: white;
     outline: none;
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 10px;
 }
 
@@ -563,10 +692,30 @@ hr {
     color: white;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .group__innersec {
     padding: 20px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.group__innersec::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.group__innersec {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .groupMember__lang {
@@ -611,7 +760,30 @@ hr {
     min-height: 100vh;
     padding: 20px;
     place-items: center;
+    position: relative;
     background-image: linear-gradient(to right top, #101e3c, #3c415d, #67697f, #9393a4, #c1c0ca, #c1c0ca, #c1c0ca, #c1c0ca, #9393a4, #67697f, #3c415d, #101e3c);
+}
+
+.forms {
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    scroll-behavior: smooth;
+}
+
+.forms::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.forms {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .login__page {
@@ -661,17 +833,18 @@ hr {
     cursor: pointer;
 }
 
-.back a{
+.back a {
     color: white;
     text-decoration: none;
     font-weight: 900;
     font-size: 1.1rem;
     width: fit-content;
     background-color: white;
-    color:#101E3C;
+    color: #101E3C;
     padding: 2px 8px;
     border-radius: 4px;
 }
+
 .login__register {
     display: flex;
     flex-direction: column;
@@ -692,7 +865,7 @@ hr {
 
 .reg__fields {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     padding: 10px;
 }
 
@@ -710,7 +883,7 @@ hr {
     height: 150px;
 }
 
-.profile{
+.profile {
     display: flex;
 }
 
@@ -740,3 +913,80 @@ hr {
 .profile__details {
     width: 100%;
 }
+
+
+@media only screen and (min-width: 1200px) {
+    nav {
+        font-size: 62.5%;
+    }
+}
+
+@media only screen and (min-width: 2100px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .nav {
+        padding: 5px;
+    }
+    .nav__logo img {
+        display: none;
+    }
+    .nav__search img {
+        display: none;
+    }
+    .nav__title {
+        font-weight: 800;
+        font-size: .8rem;
+        color: #101E3C;
+        margin-right: 4px;
+    }
+    .nav__login img {
+        display: none;
+    }
+    .nav__search input{
+        font-size: .6rem;
+    }
+    .nav__search {
+        padding: 5px;
+    }
+    .nav__search hr{
+        display: none;
+    }
+    .nav__login a {
+        font-size: .8rem;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .html{
+        height: 100vh;
+        font-size: 70%;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .sections{
+        height: 50vh;
+        font-size: 70%;
+    }
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .sections{
+        height: 50vh;
+    }
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .sections{
+        height: 50vh;
+    }
+  }

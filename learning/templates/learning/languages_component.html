@@ -2,7 +2,7 @@
 <div class="lang">
     <div class="lang__title">
         <h3>&nbsp;Browse&nbsp;Languages</h3>
-        
+
     </div>
     <hr>
 
@@ -12,10 +12,12 @@
         </div>
 
         <div class="list">
-            {% for lang in languages %}
-            <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}} <span>{{lang.group_set.all.count }}</span></a>
-            {% endfor %}
-            <img src="{% static 'img/more.png' %}" alt="try" />
+            <div class="list__div">
+                {% for lang in languages %}
+                <a href="{% url 'home' %}?q={{lang.name}}">{{lang.name}} <span>{{lang.group_set.all.count }}</span></a>
+                {% endfor %}
+            </div>
+            
         </div>
     </div>
 </div>

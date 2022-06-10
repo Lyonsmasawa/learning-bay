@@ -4,30 +4,35 @@
     <hr>
     <h3 class="activity__title">Recent Activities <img src="{% static 'img/pulse.png' %}" alt=". . ." /></h3>
 
-    <div class="act__container">
-        {% for message  in group_messages %} 
-        <div class="activity__card">
-            <p class="activity__icon">
-                <img src="{% static 'img/userx.png' %}" alt=". . ." />
-                <span class="act__del">
-                    <span class="activity__time">
-                        <a href="{% url 'profile' message.user.id %}">@ {{message.user}}</a>
-                        &nbsp;{{message.created | timesince }} ago
+    <div class="activity__abs">
+        <div class="act__container">
+            {% for message  in group_messages %}
+            <div class="activity__card">
+                <p class="activity__icon">
+                    <img src="{% static 'img/userx.png' %}" alt=". . ." />
+                    <span class="act__del">
+                        <span class="activity__time">
+                            <a href="{% url 'profile' message.user.id %}">@ {{message.user}}</a>
+                            &nbsp;{{message.created | timesince }} ago
+                        </span>
+                        {% if request.user == message.user %}
+                        <a href="{% url 'delete-message' message.id %}"><i class="fa fa-times"
+                                aria-hidden="true"></i></a>
+                        {% endif %}
                     </span>
-                    {% if request.user == message.user %}
-                    <a href="{% url 'delete-message' message.id %}"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    {% endif %}
-                </span>
-            </p>
+                </p>
 
-            <p class="act__comment">commented on: <a href="{% url 'group' message.group.id %}"><p class="act__group">"{{message.group}}"</a></p>
-            </p>
-            <div class="act__mgroup">
-                <div class="act__message">
-                    <p>{{message}}</p>
+                <p class="act__comment">commented on: <a href="{% url 'group' message.group.id %}">
+                        <p class="act__group">"{{message.group}}"
+                    </a></p>
+                </p>
+                <div class="act__mgroup">
+                    <div class="act__message">
+                        <p>{{message}}</p>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
