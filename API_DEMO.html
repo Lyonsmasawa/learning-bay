@@ -16,7 +16,7 @@
         let groups_ = document.getElementById('groups')
 
         let getGroups = async () => {
-            let response = await fetch('http://127.0.0.1:8000/api/groups/')
+            let response = await fetch('https://learningbay.herokuapp.com/api/groups/')
             let groups = await response.json()
             console.log(groups)
 
