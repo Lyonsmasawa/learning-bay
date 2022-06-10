@@ -3,6 +3,7 @@
     margin: 0;
     text-decoration: none;
     box-sizing: border-box;
+    scrollbar-color: #101E3C white;
 }
 
 a {
@@ -179,9 +180,9 @@ hr {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .list__div {
-    -ms-overflow-style: none;
+    -ms-overflow-style: 10px;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -260,9 +261,9 @@ hr {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .act__container {
-    -ms-overflow-style: none;
+    -ms-overflow-style: 10px;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -407,9 +408,9 @@ hr {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .feed__div {
-    -ms-overflow-style: none;
+    -ms-overflow-style: 10px;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -513,7 +514,7 @@ hr {
 
 .group {
     display: flex;
-    background-color: white;
+    background-color: rgba(170, 170, 170, 0.336);
     padding: 20px;
     gap: 20px;
     width: 100%;
@@ -620,9 +621,9 @@ hr {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .g__c {
-    -ms-overflow-style: none;
+    -ms-overflow-style: 10px;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -712,9 +713,9 @@ hr {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .group__innersec {
-    -ms-overflow-style: none;
+    -ms-overflow-style: 10px;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -775,14 +776,14 @@ hr {
 }
 
 .forms::-webkit-scrollbar {
-    display: none;
+    display: thin;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .forms {
-    -ms-overflow-style: none;
+    -ms-overflow-style: 10px;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -914,7 +915,6 @@ hr {
     width: 100%;
 }
 
-
 @media only screen and (min-width: 1200px) {
     nav {
         font-size: 62.5%;
@@ -958,6 +958,18 @@ hr {
     }
     .nav__login a {
         font-size: .8rem;
+    }
+    .activity__sec {
+        display: none;
+    }
+    .home {
+        display: flex;
+        flex-direction: column;
+    }
+    .lang {
+        /* display: none; */
+        height: 15vh;
+        overflow-y: scroll;
     }
   }
   
