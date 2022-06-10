@@ -22,10 +22,10 @@
         {% if request.user.is_authenticated %}
         <div class="logged__name">
             <img src="{% static 'img/user.png' %}" alt="User" />
-            <p>{{request.user}}</p>
+            <a href="{% url 'profile' request.user.id %}"><p>{{request.user}}</p></a>
             <p>&nbsp;</p>
         </div>
-        <div class="logged__in">
+        <div class="logged__in ">
             <a href="{% url 'logout' %}">LogOut</a>
         </div>
         {% else %}
