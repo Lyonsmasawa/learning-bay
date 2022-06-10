@@ -12,7 +12,10 @@ Inspired by the *StudyBud* application.
 
 ## Preview
 ### Landing page view
-<img src="preview/landing.png"> 
+<img src="preview/landing.png">
+
+### profile page
+<img src="preview/profile.png">
 
 ### Create Group page
 <img src="preview/create.png">
@@ -20,11 +23,8 @@ Inspired by the *StudyBud* application.
 ### Group page
 <img src="preview/group.png">
 
-### profile page
-<img src="preview/profile.png">
-
 ### Sign Up page
-<img src="peeks/profile.png">
+<img src="preview/signup.png">
 
 ## Setup Requirements
 

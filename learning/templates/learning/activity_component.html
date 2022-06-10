@@ -20,7 +20,7 @@
                 </span>
             </p>
 
-            <p class="act__comment">commented on: <p class="act__group">"{{message.group}}"</p>
+            <p class="act__comment">commented on: <a href="{% url 'group' message.group.id %}"><p class="act__group">"{{message.group}}"</a></p>
             </p>
             <div class="act__mgroup">
                 <div class="act__message">
