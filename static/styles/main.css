@@ -518,6 +518,7 @@ hr {
     padding: 20px;
     gap: 20px;
     width: 100%;
+    min-height: 70vh;
 }
 
 .group__full {
@@ -969,6 +970,9 @@ hr {
     .activity__sec {
         display: none;
     }
+    .group__member {
+        display: none;
+    }
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -1007,8 +1011,17 @@ hr {
     .activity__sec{
         display: none;
     }
+    .group__member {
+        display: none;
+    }
   }
   
+  @media only screen and (min-width: 680px) {
+    .group__member {
+        display: block;
+    }
+  }
+
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 890px) {
     .nav {
@@ -1046,6 +1059,9 @@ hr {
         grid-template-columns: 1fr 3fr 1fr;
     }
     .activity__sec{
+        display: block;
+    }
+    .group__member {
         display: block;
     }
   }
