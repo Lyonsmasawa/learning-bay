@@ -1,9 +1,7 @@
 {% load static %}
 <div class="activity">
-    <h2 class="bay">LearningBay</h2>
-    <hr>
     <h3 class="activity__title">Recent Activities <img src="{% static 'img/pulse.png' %}" alt=". . ." /></h3>
-
+    <hr>
     <div class="activity__abs">
         <div class="act__container">
             {% for message  in group_messages %}
