@@ -2,21 +2,23 @@
 {% load static %}
 
 {% block content %}
-<div class="profile__section">
-    <div class="profile__details">
-        <h1>User: {{user.username.upper}}</h1>
-        <p> &nbsp; in <span class="feed__numbers"> {{groups.count}}</span> Study Groups</p>
+<div class="profile__full">
+    <div class="profile__section">
+        <div class="profile__details">
+            <h1>User: {{user.username.upper}}</h1>
+            <p> &nbsp; in <span class="feed__numbers"> {{groups.count}}</span> Study Groups</p>
+        </div>
+        <p class="profile__image"></p>
     </div>
-    <p class="profile__image"></p>
-</div>
-<div class="profile">
-    <div class="profile__feed">
-        <p>&nbsp;</p>
-        <h2>User Groups: <small> ~{{user.username}}~ &nbsp;</small></h2>
-        {% include 'learning/feed_component.html' %}
-    </div>
-    <div class="profile__messages">
-        {% include 'learning/activity_component.html' %}
+    <div class="profile">
+        <div class="profile__feed">
+            <p>&nbsp;</p>
+            <h2>User Groups: <small> ~{{user.username}}~ &nbsp;</small></h2>
+            {% include 'learning/feed_component.html' %}
+        </div>
+        <div class="profile__messages">
+            {% include 'learning/activity_component.html' %}
+        </div>
     </div>
 </div>
 {% endblock content %}

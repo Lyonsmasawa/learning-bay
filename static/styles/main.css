@@ -894,6 +894,9 @@ hr {
     flex: 2;
 }
 
+.profile__full{
+    background: white;
+}
 .profile__feed h2 {
     color: #101e3c;
     margin-left: 20px;
