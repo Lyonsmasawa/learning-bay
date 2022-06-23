@@ -1,7 +1,7 @@
 # Learning Bay
 
 ## Description
-This is a web application made for students at Moringa School to facilitate virtual group discussions that can easily be monitored by their Technical mentors and also promote ease of discussions.
+This is a web application that facilitates virtual group discussions. It is meant to promote the ease of group discussions for the students  and also to make it easy for the Technical mentors to monitor the progress of the discussions in addition to the participation of the group members.. Inspired by the StudyBud application.
 Inspired by the *StudyBud* application.
 
 ### API endpoints included
